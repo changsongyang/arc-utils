@@ -6,7 +6,7 @@
 # See /LICENSE for more information.
 #
 
-VERSION="1.4.5"
+VERSION="1.4.6"
 
 function run_fio_test {
     local test_name=$1
@@ -316,10 +316,10 @@ if command -v fio &>/dev/null; then
 
     printf "\n"
     printf "Storage Test 2 Results:\n" | tee -a /tmp/results.txt
-    printf "  Sequential Read:\n" | tee -a /tmp/results.txt; fio_summary /tmp/fio_read.txt "read" | tee -a /tmp/results.txt
-    printf "  Sequential Write:\n" | tee -a /tmp/results.txt; fio_summary /tmp/fio_write.txt "write" | tee -a /tmp/results.txt
-    printf "  Random Read:\n" | tee -a /tmp/results.txt; fio_summary /tmp/fio_randread.txt "randread" | tee -a /tmp/results.txt
-    printf "  Random Write:\n" | tee -a /tmp/results.txt; fio_summary /tmp/fio_randwrite.txt "randwrite" | tee -a /tmp/results.txt
+    fio_summary /tmp/fio_read.txt "read" | tee -a /tmp/results.txt
+    fio_summary /tmp/fio_write.txt "write" | tee -a /tmp/results.txt
+    fio_summary /tmp/fio_randread.txt "randread" | tee -a /tmp/results.txt
+    fio_summary /tmp/fio_randwrite.txt "randwrite" | tee -a /tmp/results.txt
 fi
 printf "\n" | tee -a /tmp/results.txt
 
